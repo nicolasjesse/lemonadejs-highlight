@@ -1,0 +1,58 @@
+{
+  "name": "lemonadejs-highlight",
+  "displayName": "LemonadeJS Highlight",
+  "description": "Highlights LemonadeJS Code",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nicolasjesse/lemonadejs-highlight.git"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.1"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "grammars": [
+      {
+        "scopeName": "template.lm",
+        "path": "./syntaxes/template.lm.json",
+        "injectTo": [
+          "source.js",
+          "source.ts"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.html": "html"
+        }
+      },
+      {
+        "scopeName": "source.lm.ts",
+        "path": "./syntaxes/source.lm.ts.json"
+      },
+      {
+        "scopeName": "source.lm.css",
+        "path": "./syntaxes/source.lm.css.json"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.89.1",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
